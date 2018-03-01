@@ -92,6 +92,44 @@
 
 <h2> AWARDS </h2>
 <p> HKBU Admission Full Scholarship Award  Sep/2016- Present </p>
+
+<script>
+experiences=[{
+    'title':'school',
+    'date':'2018',
+    'location':'shenzen',
+},
+    {'title':'comm',
+    'date':'2019',
+    'location':'HongKong'}
+    ]
+
+
+o= document.getElementById('content')
+// o.innerHTML='<ul><li>Item 1</li><li>Item2</li>'
+// itemString='<li>'+experiences[0]['title']+ '</li>'
+// o.innerHTML='<ul>'+itemString+'</ul>'
+
+allItemString=''
+for(i=0;i<experiences.length;i++){console.log(i)
+itemString='<li>'+
+experiences[i]['title']+
+','+
+experiences[i]['date']+
+','+
+experiences[i]['location']+
+'<li>'
+allItemString=allItemString+itemString
+
+}
+
+o.innerHTML='<ul>'+allItemString+'</ul>'
+
+
+
+
+</script>
+
   
 </html>
 
