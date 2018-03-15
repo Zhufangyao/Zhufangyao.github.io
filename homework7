@@ -1,1 +1,335 @@
+<html>
+<head>
+
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-time.v1.min.js"></script>
+<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+<script src="https://d3js.org/d3-scale.v2.min.js"></script>
+</script>
+
+<style>
+    .container {
+        margin: 30px auto;
+        width: 600px;
+        height: 300px;
+        border: 1px solid #000;
+    }
+</style>
+
+
+</head>
+
+
+
+<body>
+<h1>政府2018年的收入和開支</h1>
+
+
+<h2> 2018-19年度政府總收入為6，045億元</h2>
+
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
+    <script>
+    
+    var width = 300;
+    var height = 400;
+    var dataset = [ 398 , 1210 , 1338 , 1551 , 548, 1000 ];
+    
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+    
+    var pie = d3.layout.pie();
+
+    var piedata = pie(dataset);
+    
+    var outerRadius = 150;	//外半径
+    var innerRadius = 0;	//内半径，为0则中间没有空白
+
+    var arc = d3.svg.arc()	//弧生成器
+                .innerRadius(innerRadius)	//设置内半径
+                .outerRadius(outerRadius);	//设置外半径
+    
+    var color = d3.scale.category10();
+    
+    var arcs = svg.selectAll("g")
+                  .data(piedata)
+                  .enter()
+                  .append("g")
+                  .attr("transform","translate("+ (width/2) +","+ (width/2) +")");
+                  
+    arcs.append("path")
+        .attr("fill",function(d,i){
+            return color(i);
+        })
+        .attr("d",function(d){
+            return arc(d);
+        });
+    
+    arcs.append("text")
+        .attr("transform",function(d){
+            return "translate(" + arc.centroid(d) + ")";
+        })
+        .attr("text-anchor","middle")
+        .text(function(d){
+            return d.data;
+        });
+    
+    console.log(dataset);
+    console.log(piedata);
+      
+    </script>  
+    <h6>圖表數值單位均為“億元”</h6>
+    <h3>其中佔比最多的三項依次為：利得稅、地價收入和印花稅</h3>
+
+<h2>2018-19年度政府總支出為4065億元</h2>
+<style>
+        svg{
+            width:800px;
+            height:1000px;
+        }
+        </style>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+var width = 400;
+var height = 400;
+
+var dataset = [['社會福利及基礎建設', 72.5], ['環境及視頻', 5.3], ['教育', 16.3], ['經濟', 3.5], ['其他', 1.0], ['衛生', 1.4]];
+
+var pie = d3.pie()
+            .sort(null)
+            .value(function(d){
+              return d[1];
+            });
+var piedata = pie(dataset);
+
+var outerRadius = width / 4;
+var innerRadius = 0;
+
+var arc = d3.arc()
+            .outerRadius(outerRadius)
+            .innerRadius(innerRadius);
+
+var colors = d3.schemeCategory10;
+
+var svg = d3.select('body')
+			.append('svg')
+			.attr('width', width)
+			.attr('height', height);
+
+var arcs = svg.selectAll('g')
+              .data(piedata)
+              .enter()
+              .append('g')
+              .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+
+arcs.append('path')
+    .attr('fill', function(d, i){
+      return colors[i];
+    })
+    .attr('d', function(d){
+      return arc(d);
+    });
+
+arcs.append('text')
+		.attr('transform', function(d, i){
+			var x = arc.centroid(d)[0] * 2.8;
+			var y = arc.centroid(d)[1] * 2.8;
+			if(i === 4) {
+				return 'translate(' + (x * 1.2) + ', ' + (y * 1.2) + ')';
+			} else if(i === 3) {
+			  return 'translate(' + (x - 40) + ', ' + y + ')';
+			} else if(i === 5) {
+				return 'translate(' + (x + 40) + ', ' + y + ')';
+			}
+			return 'translate(' + x + ', ' + y + ')';
+		})
+		.attr('text-anchor', 'middle')
+		.text(function(d){
+			var percent = Number(d.value) / d3.sum(dataset, function(d){
+				return d[1];
+			}) * 100;
+			return d.data[0] + ' ' + percent.toFixed(1) + '%';
+		})
+
+arcs.append('line')
+		.attr('stroke', 'black')
+		.attr('x1', function(d){ return arc.centroid(d)[0] * 2; })
+		.attr('y1', function(d){ return arc.centroid(d)[1] * 2; })
+		.attr('x2', function(d, i){
+			if(i === 4) {
+				return arc.centroid(d)[0] * 3.2;
+			}
+			return arc.centroid(d)[0] * 2.5;
+		})
+		.attr('y2', function(d, i){
+			if(i === 4) {
+				return arc.centroid(d)[1] * 3.2;
+			}
+			return arc.centroid(d)[1] * 2.5;
+		});
+        
+    </script>
+  <h6>圖表數值單位均為“億元”</h6>
+<h3>從圖中我們可以看出政府用於社會福利及基礎建設的支出最大，其次是用於教育。</h3>
+
+  
+
+        
+<!-- <h1>Demo of Bubble chart in D3</h1> -->
+<!-- <svg>  -->
+    <!-- <text =10 y=10>Bubble</text> -->
+    
+<!-- </svg> -->
+<style>
+svg{
+    width:1000px;
+    height:300px;
+}
+</style>
+
+
+
+<style>
+	.axis path,
+	.axis line{
+		fill: none;
+		stroke: black;
+		shape-rendering: crispEdges;
+	}
+
+	.axis text {
+		font-family: sans-serif;
+		font-size: 11px;
+	}
+
+	.MyRect {
+		fill: steelblue;
+	}
+
+	.MyText {
+		fill: white;
+		text-anchor: middle;
+	}
+</style>
+
+<h2>2010—2018政府支出中社會福利和基礎建設占比</h2>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
+	<script>
+
+
+	var width = 400;
+	var height = 300;
+
+		
+	var svg = d3.select("body")
+		.append("svg")
+		.attr("width", width)
+		.attr("height", height);
+
+	
+	var padding = {left:30, right:30, top:20, bottom:20};
+
+	
+	var dataset = [61.7, 63.2, 65.5, 66, 70, 71.3, 72.4, 72.5];
+		
+	
+	var xScale = d3.scale.ordinal()
+		.domain(d3.range(dataset.length))
+		.rangeRoundBands([0, width - padding.left - padding.right]);
+
+	
+	var yScale = d3.scale.linear()
+		.domain([0,d3.max(dataset)])
+		.range([height - padding.top - padding.bottom, 0]);
+
+	
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.orient("bottom");
+		
+	
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.orient("left");
+
+	//矩形之间的空白
+	var rectPadding = 4;
+
+	//添加矩形元素
+	var rects = svg.selectAll(".MyRect")
+		.data(dataset)
+		.enter()
+		.append("rect")
+		.attr("class","MyRect")
+		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
+		.attr("x", function(d,i){
+			return xScale(i) + rectPadding/2;
+		} )
+		.attr("y",function(d){
+			return yScale(d);
+		})
+		.attr("width", xScale.rangeBand() - rectPadding )
+		.attr("height", function(d){
+			return height - padding.top - padding.bottom - yScale(d);
+		});
+
+	//添加文字元素
+	var texts = svg.selectAll(".MyText")
+		.data(dataset)
+		.enter()
+		.append("text")
+		.attr("class","MyText")
+		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
+		.attr("x", function(d,i){
+			return xScale(i) + rectPadding/2;
+		} )
+		.attr("y",function(d){
+			return yScale(d);
+		})
+		.attr("dx",function(){
+			return (xScale.rangeBand() - rectPadding)/2;
+		})
+		.attr("dy",function(d){
+			return 20;
+		})
+		.text(function(d){
+			return d;
+		});
+
+	//添加x轴
+	svg.append("g")
+		.attr("class","axis")
+		.attr("transform","translate(" + padding.left + "," + (height - padding.bottom) + ")")
+		.call(xAxis); 
+		
+	//添加y轴
+	svg.append("g")
+		.attr("class","axis")
+		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
+		.call(yAxis);
+    
+    
+
+</script>  
+<h3>從圖表中可以看出，2010—2018政府支出中社會福利和基礎建設占比在逐步上升，說明了政府對民生的重視程度</h3>
+
+
+
+</body>
+
+   
+   
+   
+   
+   
+   
+    </html>
 
