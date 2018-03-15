@@ -30,71 +30,7 @@ mdisn
 
 
 <body>
-<h1>政府2018年的收入和開支</h1>
-
-
-<h2> 2018-19年度政府總收入為6，045億元</h2>
-
-<style>
-        svg{
-            width:800px;
-            height:1000px;
-        }
-        </style>
-    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>  
-    <script>
-    
-    var width = 300;
-    var height = 400;
-    var dataset = [ 398 , 1210 , 1338 , 1551 , 548, 1000 ];
-    
-    var svg = d3.select("body")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height);
-    
-    var pie = d3.layout.pie();
-
-    var piedata = pie(dataset);
-    
-    var outerRadius = 150;	//外半径
-    var innerRadius = 0;	//内半径，为0则中间没有空白
-
-    var arc = d3.svg.arc()	//弧生成器
-                .innerRadius(innerRadius)	//设置内半径
-                .outerRadius(outerRadius);	//设置外半径
-    
-    var color = d3.scale.category10();
-    
-    var arcs = svg.selectAll("g")
-                  .data(piedata)
-                  .enter()
-                  .append("g")
-                  .attr("transform","translate("+ (width/2) +","+ (width/2) +")");
-                  
-    arcs.append("path")
-        .attr("fill",function(d,i){
-            return color(i);
-        })
-        .attr("d",function(d){
-            return arc(d);
-        });
-    
-    arcs.append("text")
-        .attr("transform",function(d){
-            return "translate(" + arc.centroid(d) + ")";
-        })
-        .attr("text-anchor","middle")
-        .text(function(d){
-            return d.data;
-        });
-    
-    console.log(dataset);
-    console.log(piedata);
-      
-    </script>  
-    <h6>圖表數值單位均為“億元”</h6>
-    <h3>其中佔比最多的三項依次為：利得稅、地價收入和印花稅</h3>
+<h1>政府2018年的開支</h1>
 
 <h2>2018-19年度政府總支出為4065億元</h2>
 <style>
@@ -202,7 +138,77 @@ svg{
 }
 </style>
 
+<script>
+ 
+		var width = 300;
+		var height = 300;
+		var dataset = [ 89 , 11 ];
+ 
+		var svg = d3.select("body").append("svg")
+								.attr("width",width)
+								.attr("height",height);
+ 
+		var pie = d3.layout.pie();
+ 
+		var outerRadius = width / 2;
+		var innerRadius = width / 4;
+		var arc = d3.svg.arc()
+						.innerRadius(innerRadius)
+						.outerRadius(outerRadius);
+ 
+		var color = d3.scale.category10();
+ 
+		var arcs = svg.selectAll("g")
+					  .data(pie(dataset))
+					  .enter()
+					  .append("g")
+					  .attr("transform","translate("+outerRadius+","+outerRadius+")");
+ 
+		arcs.append("path")
+			.attr("fill",function(d,i){
+				return color(i);
+			})
+			.attr("d",function(d){
+				return arc(d);
+			});
+ 
+		arcs.append("text")
+			.attr("transform",function(d){
+				return "translate(" + arc.centroid(d) + ")";
+			})
+			.attr("text-anchor","middle")
+			.text(function(d){
+				return d.value;
+			});
+ 
+		console.log(dataset);
+		console.log(pie(dataset));
+ 
+        </script>  
 
+        <h3>
+            Orange represents non-local students.
+        </h3>
+
+        <h2>
+                Change of position
+        </h2>
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <polyline points="100,170 200,140 300,110 400,90 500,0 "
+    style="fill:none;stroke:black;stroke-width:3" />
+    <text x="100" y="160" fill="red">64</text>
+    <text x="200" y="130" fill="red">67</text>
+    <text x="300" y="100" fill="red">70</text>
+    <text x="390" y="80" fill="red">72</text>
+    <text x="470" y="10" fill="red">81</text>
+    <text x="100" y="190" fill="red">2015</text>
+    <text x="200" y="190" fill="red">2016</text>
+    <text x="300" y="190" fill="red">2017</text>
+    <text x="400" y="190" fill="red">2018</text>
+    <text x="500" y="190" fill="red">2019</text>
+  </svg>
+  
 
 <style>
 	.axis path,
