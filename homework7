@@ -1,4 +1,0 @@
-
-git rm -r --cached homework7  
-git commit -m 'delete homework7'
-git push -u origin master
