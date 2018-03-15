@@ -1,4 +1,3 @@
-mdisn
 <html>
 <head>
 
@@ -12,7 +11,6 @@ mdisn
 <script src="https://d3js.org/d3-time.v1.min.js"></script>
 <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
 <script src="https://d3js.org/d3-scale.v2.min.js"></script>
-	 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
 </script>
 
 <style>
@@ -31,6 +29,8 @@ mdisn
 
 <body>
 <h1>政府2018年的開支</h1>
+
+
 
 <h2>2018-19年度政府總支出為4065億元</h2>
 <style>
@@ -123,7 +123,27 @@ arcs.append('line')
   <h6>圖表數值單位均為“億元”</h6>
 <h3>從圖中我們可以看出政府用於社會福利及基礎建設的支出最大，其次是用於教育。</h3>
 
-  
+<h2>2010—2018政府支出中社會福利和基礎建設占比</h2>
+
+    
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<polyline points="100,170 200,140 300,110 400,90 500,0 "
+style="fill:none;stroke:black;stroke-width:3" />
+<text x="100" y="160" fill="red">72.5</text>
+<text x="200" y="130" fill="yello"> 72.4</text>
+<text x="300" y="100" fill="blue">70.1</text>
+<text x="390" y="80" fill="green">66.7</text>
+<text x="470" y="10" fill="purple">63.2</text>
+<text x="100" y="190" fill="black">2014</text>
+<text x="200" y="190" fill="black">2015</text>
+<text x="300" y="190" fill="black">2016</text>
+<text x="400" y="190" fill="black">2017</text>
+<text x="500" y="190" fill="black">2018</text>
+
+</svg>
+
+<h3>從圖表中可以看出，2010—2018政府支出中社會福利和基礎建設占比在逐步上升，說明了政府對民生的重視程度</h3>
 
         
 <!-- <h1>Demo of Bubble chart in D3</h1> -->
@@ -131,208 +151,7 @@ arcs.append('line')
     <!-- <text =10 y=10>Bubble</text> -->
     
 <!-- </svg> -->
-<style>
-svg{
-    width:1000px;
-    height:300px;
-}
-</style>
 
-<script>
- 
-		var width = 300;
-		var height = 300;
-		var dataset = [ 89 , 11 ];
- 
-		var svg = d3.select("body").append("svg")
-								.attr("width",width)
-								.attr("height",height);
- 
-		var pie = d3.layout.pie();
- 
-		var outerRadius = width / 2;
-		var innerRadius = width / 4;
-		var arc = d3.svg.arc()
-						.innerRadius(innerRadius)
-						.outerRadius(outerRadius);
- 
-		var color = d3.scale.category10();
- 
-		var arcs = svg.selectAll("g")
-					  .data(pie(dataset))
-					  .enter()
-					  .append("g")
-					  .attr("transform","translate("+outerRadius+","+outerRadius+")");
- 
-		arcs.append("path")
-			.attr("fill",function(d,i){
-				return color(i);
-			})
-			.attr("d",function(d){
-				return arc(d);
-			});
- 
-		arcs.append("text")
-			.attr("transform",function(d){
-				return "translate(" + arc.centroid(d) + ")";
-			})
-			.attr("text-anchor","middle")
-			.text(function(d){
-				return d.value;
-			});
- 
-		console.log(dataset);
-		console.log(pie(dataset));
- 
-        </script>  
-
-        <h3>
-            Orange represents non-local students.
-        </h3>
-
-        <h2>
-                Change of position
-        </h2>
-<div>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-    <polyline points="100,170 200,140 300,110 400,90 500,0 "
-    style="fill:none;stroke:black;stroke-width:3" />
-    <text x="100" y="160" fill="red">64</text>
-    <text x="200" y="130" fill="red">67</text>
-    <text x="300" y="100" fill="red">70</text>
-    <text x="390" y="80" fill="red">72</text>
-    <text x="470" y="10" fill="red">81</text>
-    <text x="100" y="190" fill="red">2015</text>
-    <text x="200" y="190" fill="red">2016</text>
-    <text x="300" y="190" fill="red">2017</text>
-    <text x="400" y="190" fill="red">2018</text>
-    <text x="500" y="190" fill="red">2019</text>
-  </svg>
-  
-
-<style>
-	.axis path,
-	.axis line{
-		fill: none;
-		stroke: black;
-		shape-rendering: crispEdges;
-	}
-
-	.axis text {
-		font-family: sans-serif;
-		font-size: 11px;
-	}
-
-	.MyRect {
-		fill: steelblue;
-	}
-
-	.MyText {
-		fill: white;
-		text-anchor: middle;
-	}
-</style>
-
-<h2>2010—2018政府支出中社會福利和基礎建設占比</h2>
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
-	<script>
-
-
-	var width = 400;
-	var height = 300;
-
-		
-	var svg = d3.select("body")
-		.append("svg")
-		.attr("width", width)
-		.attr("height", height);
-
-	
-	var padding = {left:30, right:30, top:20, bottom:20};
-
-	
-	var dataset = [61.7, 63.2, 65.5, 66, 70, 71.3, 72.4, 72.5];
-		
-	
-	var xScale = d3.scale.ordinal()
-		.domain(d3.range(dataset.length))
-		.rangeRoundBands([0, width - padding.left - padding.right]);
-
-	
-	var yScale = d3.scale.linear()
-		.domain([0,d3.max(dataset)])
-		.range([height - padding.top - padding.bottom, 0]);
-
-	
-	var xAxis = d3.svg.axis()
-		.scale(xScale)
-		.orient("bottom");
-		
-	
-	var yAxis = d3.svg.axis()
-		.scale(yScale)
-		.orient("left");
-
-	//矩形之间的空白
-	var rectPadding = 4;
-
-	//添加矩形元素
-	var rects = svg.selectAll(".MyRect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("class","MyRect")
-		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
-		.attr("x", function(d,i){
-			return xScale(i) + rectPadding/2;
-		} )
-		.attr("y",function(d){
-			return yScale(d);
-		})
-		.attr("width", xScale.rangeBand() - rectPadding )
-		.attr("height", function(d){
-			return height - padding.top - padding.bottom - yScale(d);
-		});
-
-	//添加文字元素
-	var texts = svg.selectAll(".MyText")
-		.data(dataset)
-		.enter()
-		.append("text")
-		.attr("class","MyText")
-		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
-		.attr("x", function(d,i){
-			return xScale(i) + rectPadding/2;
-		} )
-		.attr("y",function(d){
-			return yScale(d);
-		})
-		.attr("dx",function(){
-			return (xScale.rangeBand() - rectPadding)/2;
-		})
-		.attr("dy",function(d){
-			return 20;
-		})
-		.text(function(d){
-			return d;
-		});
-
-	//添加x轴
-	svg.append("g")
-		.attr("class","axis")
-		.attr("transform","translate(" + padding.left + "," + (height - padding.bottom) + ")")
-		.call(xAxis); 
-		
-	//添加y轴
-	svg.append("g")
-		.attr("class","axis")
-		.attr("transform","translate(" + padding.left + "," + padding.top + ")")
-		.call(yAxis);
-    
-    
-
-</script>  
-<h3>從圖表中可以看出，2010—2018政府支出中社會福利和基礎建設占比在逐步上升，說明了政府對民生的重視程度</h3>
 
 
 
