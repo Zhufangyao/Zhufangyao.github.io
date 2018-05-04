@@ -33,6 +33,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.2.2/echarts.min.js"></script>
+    <script src="https://echarts.baidu.com/asset/map/js/world.js"></script>
+    
+
 
 
     <!-- favicons
@@ -157,10 +165,7 @@
 
         <div class="row section-header has-bottom-sep" data-aos="fade-up">
             <div class="col-full">
-                <p style="font-family: wt064">2018年3月20日， 世界上最後一頭北方雄性白犀牛“蘇丹”因年邁體衰和感染不治，在肯尼亞被安樂死，結束了它多災多難的一生。據外媒報道，45歲的“蘇丹”健康狀況嚴重惡化，其肌肉和骨骼已經退化，皮膚有很大的傷口，而且已經無法站立，保護區方面因此對它實施了安樂死。
-                    親眼見證一個又一個物種的滅絕讓世人驚醒，野生動物保護的話題再次被推上風口浪尖。
-
-                </p>
+                <h1 class="display-1 display-1--light">北部白犀概況</h1>
             </div>
         </div>
         <!-- end section-header -->
@@ -172,7 +177,7 @@
         <div class="row about-desc" data-aos="fade-up">
             <div class="col-full">
                 <p style="font-family: wt064">
-                    我們是北部白犀牛，是白犀牛的亞種，也是現存五種犀牛中個頭最大的，僅次於大象的陸生大獸。吻大而鈍，所以人們又叫我們“方吻犀”。鼻端有兩個長角，前角長約120厘米，後角長約60厘米，雌犀的角常長於雄犀。我們主要生活在非洲，棲息於平坦的灌木林。和大多數動物一樣，我們也有自己爭奪領地的方式：成年的雄性犀牛會撒尿及散布糞便的方式來標識自己的領域，在爭奪領域時，會互相用角攻擊。我們的視力很差，主要依靠聽覺和嗅覺。
+                    北部白犀牛，是白犀牛的亞種。我們（白犀牛）是現存五種犀牛中個頭最大的，也是僅次於大象的陸生大獸。吻大而鈍，所以人們又叫我們“方吻犀”。鼻端有兩個長角，前角長約120厘米，後角長約60厘米，雌犀的角常長於雄犀。我們主要生活在非洲，棲息於平坦的灌木林。和大多數動物一樣，我們也有自己爭奪領地的方式：成年的雄性犀牛會撒尿及散布糞便的方式來標識自己的領域，在爭奪領域時，會互相用角攻擊。我們的視力很差，主要依靠聽覺和嗅覺。
                 </p>
             </div>
         </div>
@@ -309,7 +314,6 @@
                 width = +svg.attr("width"),
                 height = +svg.attr("height"),
                 g = svg.append("g").attr("transform", "translate(20,0)"); // move right 20px.
-
             // x-scale and x-axis
             var experienceName = ["", "滅絕 1.0", "滅絕邊緣 2.0", "極危 3.0", "瀕危 4.0", "易危 5.0"];
             var formatSkillPoints = function(d) {
@@ -318,12 +322,10 @@
             var xScale = d3.scaleLinear()
                 .domain([0, 5])
                 .range([0, 400]);
-
             var xAxis = d3.axisTop()
                 .scale(xScale)
                 .ticks(5)
                 .tickFormat(formatSkillPoints);
-
             // Setting up a way to handle the data
             var tree = d3.cluster() // This D3 API method setup the Dendrogram datum position.
                 .size([height, width - 460]) // Total width - bar chart width = Dendrogram chart width
@@ -333,18 +335,14 @@
                         a.parent.parent == b.parent ||
                         a.parent == b.parent.parent ? 0.4 : 0.8;
                 });
-
             var stratify = d3.stratify() // This D3 API method gives cvs file flat data array dimensions.
                 .parentId(function(d) {
                     return d.id.substring(0, d.id.lastIndexOf("."));
                 });
-
-            d3.csv("https://zhufangyao.github.io/rhino 2/data/skillsdata.csv", row, function(error, data) {
+            d3.csv("../data/skillsdata.csv", row, function(error, data) {
                 if (error) throw error;
-
                 var root = stratify(data);
                 tree(root);
-
                 // Draw every datum a line connecting to its parent.
                 var link = g.selectAll(".link")
                     .data(root.descendants().slice(1))
@@ -356,7 +354,6 @@
                             " " + (d.parent.y + 100) + "," + d.parent.x +
                             " " + d.parent.y + "," + d.parent.x;
                     });
-
                 // Setup position for every datum; Applying different css classes to parents and leafs.
                 var node = g.selectAll(".node")
                     .data(root.descendants())
@@ -367,17 +364,14 @@
                     .attr("transform", function(d) {
                         return "translate(" + d.y + "," + d.x + ")";
                     });
-
                 // Draw every datum a small circle.
                 node.append("circle")
                     .attr("r", 4);
-
                 // Setup G for every leaf datum.
                 var leafNodeG = g.selectAll(".node--leaf")
                     .append("g")
                     .attr("class", "node--leaf-g")
                     .attr("transform", "translate(" + 8 + "," + -13 + ")");
-
                 leafNodeG.append("rect")
                     .attr("class", "shadow")
                     .style("fill", function(d) {
@@ -392,7 +386,6 @@
                     .attr("width", function(d) {
                         return xScale(d.data.value);
                     });
-
                 leafNodeG.append("text")
                     .attr("dy", 19.5)
                     .attr("x", 8)
@@ -400,7 +393,6 @@
                     .text(function(d) {
                         return d.data.id.substring(d.data.id.lastIndexOf(".") + 1);
                     });
-
                 // Write down text for every parent datum
                 var internalNode = g.selectAll(".node--internal");
                 internalNode.append("text")
@@ -409,14 +401,12 @@
                     .text(function(d) {
                         return d.data.id.substring(d.data.id.lastIndexOf(".") + 1);
                     });
-
                 // Attach axis on top of the first leaf datum.
                 var firstEndNode = g.select(".node--leaf");
                 firstEndNode.insert("g")
                     .attr("class", "xAxis")
                     .attr("transform", "translate(" + 7 + "," + -14 + ")")
                     .call(xAxis);
-
                 // tick mark for x-axis
                 firstEndNode.insert("g")
                     .attr("class", "grid")
@@ -427,12 +417,10 @@
                         .tickSize(-height, 0, 0)
                         .tickFormat("")
                     );
-
                 // Emphasize the y-axis baseline.
                 svg.selectAll(".grid").select("line")
                     .style("stroke-dasharray", "20,1")
                     .style("stroke", "black");
-
                 // The moving ball
                 var ballG = svg.insert("g")
                     .attr("class", "ballG")
@@ -445,44 +433,33 @@
                     .style("text-anchor", "middle")
                     .attr("dy", 5)
                     .text("0.0");
-
                 // Animation functions for mouse on and off events.
                 d3.selectAll(".node--leaf-g")
                     .on("mouseover", handleMouseOver)
                     .on("mouseout", handleMouseOut);
-
                 function handleMouseOver(d) {
                     var leafG = d3.select(this);
-
                     leafG.select("rect")
                         .attr("stroke", "#4D4D4D")
                         .attr("stroke-width", "2");
-
-
                     var ballGMovement = ballG.transition()
                         .duration(400)
                         .attr("transform", "translate(" + (d.y +
                                 xScale(d.data.value) + 90) + "," +
                             (d.x + 1.5) + ")");
-
                     ballGMovement.select("circle")
                         .style("fill", d.data.color)
                         .attr("r", 18);
-
                     ballGMovement.select("text")
                         .delay(300)
                         .text(Number(d.data.value).toFixed(1));
                 }
-
                 function handleMouseOut() {
                     var leafG = d3.select(this);
-
                     leafG.select("rect")
                         .attr("stroke-width", "0");
                 }
-
             });
-
             function row(d) {
                 return {
                     id: d.id,
@@ -491,7 +468,6 @@
                 };
             }
         </script>
-       
     </section>
     <!-- end 犀牛的種類及現狀 -->
 
@@ -564,46 +540,29 @@
                             <script>
                                 (function() {
                                     var Fireworks, GRAVITY, K, SPEED, ToRadian, canvas, context, ctx, fireBoss, repeat, stage;
-
                                     canvas = document.getElementById("canvas");
-
                                     context = canvas.getContext("2d");
-
                                     canvas.width = window.innerWidth;
-
                                     canvas.height = window.innerHeight;
-
                                     stage = new createjs.Stage(canvas);
-
                                     stage.autoClear = false;
-
                                     ctx = canvas.getContext("2d");
-
                                     ctx.fillStyle = "rgba(0, 0, 0, 0)";
-
                                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
                                     createjs.Ticker.setFPS(50);
-
                                     // createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED
                                     createjs.Touch.enable(stage);
-
                                     stage.update();
-
                                     // 重力
                                     GRAVITY = 0;
-
                                     // 抵抗
                                     K = 0.4;
-
                                     // スピード
                                     SPEED = 12;
-
                                     // 角度(degree)からラジアン(radian)に変換
                                     ToRadian = function(degree) {
                                         return degree * Math.PI / 180.0;
                                     };
-
                                     // 花火を作り上げるクラス
                                     Fireworks = class Fireworks {
                                         constructor(sx = 100, sy = 100, particles = 70) {
@@ -636,7 +595,6 @@
                                             }
                                             stage.addChild(this.sky);
                                         }
-
                                         explode() {
                                             var circle, j, p, ref;
                                             if (this.sky) {
@@ -665,19 +623,14 @@
                                                     this.sky = null;
                                                 }
                                             } else {
-
                                             }
                                         }
-
                                     };
-
                                     fireBoss = [];
-
                                     setInterval(function() {
                                         ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
                                         ctx.fillRect(0, 0, canvas.width, canvas.height);
                                     }, 40);
-
                                     setInterval(function() {
                                         var x, y;
                                         x = Math.random() * canvas.width | 0;
@@ -685,7 +638,6 @@
                                         fireBoss.push(new Fireworks(x, y));
                                         return fireBoss.push(new Fireworks(x, y));
                                     }, 6000);
-
                                     repeat = function() {
                                         var fireworks, j, ref;
                                         for (fireworks = j = 0, ref = fireBoss.length;
@@ -696,13 +648,9 @@
                                         }
                                         stage.update();
                                     };
-
                                     createjs.Ticker.on("tick", repeat);
-
                                     stage.addEventListener("stagemousedown", function() {
-
                                     });
-
                                 }).call(this);
                             </script>
 
@@ -713,46 +661,29 @@
                             <script>
                                 (function() {
                                     var Fireworks, GRAVITY, K, SPEED, ToRadian, canvas, context, ctx, fireBoss, repeat, stage;
-
                                     canvas = document.getElementById("canvas2");
-
                                     context = canvas.getContext("2d");
-
                                     canvas.width = window.innerWidth;
-
                                     canvas.height = window.innerHeight;
-
                                     stage = new createjs.Stage(canvas);
-
                                     stage.autoClear = false;
-
                                     ctx = canvas.getContext("2d");
-
                                     ctx.fillStyle = "rgba(0, 0, 0, 0)";
-
                                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
                                     createjs.Ticker.setFPS(50);
-
                                     // createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED
                                     createjs.Touch.enable(stage);
-
                                     stage.update();
-
                                     // 重力
                                     GRAVITY = 0;
-
                                     // 抵抗
                                     K = 0.5;
-
                                     // スピード
                                     SPEED = 12;
-
                                     // 角度(degree)からラジアン(radian)に変換
                                     ToRadian = function(degree) {
                                         return degree * Math.PI / 180.0;
                                     };
-
                                     // 花火を作り上げるクラス
                                     Fireworks = class Fireworks {
                                         constructor(sx = 100, sy = 100, particles = 50) {
@@ -785,7 +716,6 @@
                                             }
                                             stage.addChild(this.sky);
                                         }
-
                                         explode() {
                                             var circle, j, p, ref;
                                             if (this.sky) {
@@ -814,19 +744,14 @@
                                                     this.sky = null;
                                                 }
                                             } else {
-
                                             }
                                         }
-
                                     };
-
                                     fireBoss = [];
-
                                     setInterval(function() {
                                         ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
                                         ctx.fillRect(0, 0, canvas.width, canvas.height);
                                     }, 40);
-
                                     setInterval(function() {
                                         var x, y;
                                         x = Math.random() * canvas.width | 0;
@@ -834,7 +759,6 @@
                                         fireBoss.push(new Fireworks(x, y));
                                         return fireBoss.push(new Fireworks(x, y));
                                     }, 0);
-
                                     repeat = function() {
                                         var fireworks, j, ref;
                                         for (fireworks = j = 0, ref = fireBoss.length;
@@ -845,13 +769,9 @@
                                         }
                                         stage.update();
                                     };
-
                                     createjs.Ticker.on("tick", repeat);
-
                                     stage.addEventListener("stagemousedown", function() {
-
                                     });
-
                                 }).call(this);
                             </script>
                             <div class="row">
@@ -907,22 +827,17 @@
                                 data: [1, 1, 1, 1],
                                 color: colors[1]
                             }
-
                         }];
-
-
                     // Build the data arrays
                     var browserData = [];
                     var versionsData = [];
                     for (var i = 0; i < data.length; i++) {
-
                         // add browser data
                         browserData.push({
                             name: categories[i],
                             y: data[i].y,
                             color: data[i].color
                         });
-
                         // add version data
                         for (var j = 0; j < data[i].drilldown.data.length; j++) {
                             var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5;
@@ -933,9 +848,6 @@
                             });
                         }
                     }
-
-
-
                     // Create the chart
                     $('#pietype').highcharts({
                         chart: {
@@ -1023,9 +935,16 @@
             <div class="col-full">
                 <div class="featurepage choose-us">
                     <div id="container" style="height: 600%"></div>
-                    <script src="http://cdn.bootcss.com/echarts/3.2.2/echarts.min.js"></script>
-                    <script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
-                    <script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+                    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+                    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+                    <script type="text/javascript">
                         var dom = document.getElementById("container");
                         var myChart = echarts.init(dom);
                         var app = {};
@@ -1040,7 +959,6 @@
                                 trigger: 'item',
                                 formatter: function(params) {
                                     var value = (params.value + '').split('.');
-
                                     return params.seriesName + '<br/>' + params.name + ' : ' + value;
                                 }
                             },
@@ -1182,7 +1100,6 @@
                                         name: 'Chile',
                                         value: 19
                                     },
-
                                     {
                                         name: 'Ivory Coast',
                                         value: 0
@@ -1720,6 +1637,10 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/timeline.js"></script>
+    <script src="js/echarts.all.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/dataTool.min.js"></script>
+<script src="js/world.json"></script>
 
 </body>
 
