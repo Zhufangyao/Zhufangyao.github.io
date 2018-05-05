@@ -628,7 +628,383 @@
             </div>
         </div>
         <!--End of row-->
+ <!-- 第六次物種滅絕
+    ================================================== -->
+    <section id="p4" class="s-services">
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h1 class="display-1 display-1--light" style="color: #ce8142">第六次物種滅絕</h1>
+            </div>
+        </div>
 
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="process-wrapper">
+                <div id="progress-bar-container">
+                    <img src="images/one-hour.gif" alt="one hour later" width="30%">
+                    <div class="col-lg-4" align="center">
+                        <h3 style="font-family: wt064; color: #ce8142">約一小時滅絕一個物種</h3>
+                        <h4 style="font-family: wt064; color: #ce8142">據統計，自寒武紀以來，明顯的生物滅絕事件發生了15次。其中重大集群滅絕有5次。科學家壹直在研究滅絕的起因和規律，並提出了多種解釋，比如隕星撞擊、宇宙射線變強、火山噴發、氣候變化、大氣成分變化、海洋鹽度變化、地磁變化等。以前的生物大滅絕都屬於自然災害，但這第6次是人為的。“我們正在經歷的生物滅絕比地球生命史上其它滅絕事件更為惡劣。”有專家這樣說。</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end 第六次物種滅絕 -->
+
+
+    <!-- 1000倍！
+    ================================================== -->
+    <section id="p5" class="s-about">
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h1 class="display-1 display-1--light">1000倍！</h1>
+            </div>
+        </div>
+
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="process-wrapper">
+                <div id="progress-bar-container">
+                    <h6 align="center">（圖中每次“爆炸”代表一次動物滅絕現象）</h6>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <style>
+                                body {
+                                    background-color: #000;
+                                }
+                                
+                                canvas {
+                                    width: 70%;
+                                    height: 50%;
+                                    display: block;
+                                    margin: auto;
+                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                    -webkit-user-select: none;
+                                }
+                                
+                                canvas2 {
+                                    width: 70%;
+                                    height: 50%;
+                                    display: block;
+                                    margin: auto;
+                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                    -webkit-user-select: none;
+                                }
+                            </style>
+                            <h1 align="center">人類出現前</h1>
+                            <canvas id="canvas"></canvas>
+                            <script>
+                                (function() {
+                                    var Fireworks, GRAVITY, K, SPEED, ToRadian, canvas, context, ctx, fireBoss, repeat, stage;
+
+                                    canvas = document.getElementById("canvas");
+
+                                    context = canvas.getContext("2d");
+
+                                    canvas.width = window.innerWidth;
+
+                                    canvas.height = window.innerHeight;
+
+                                    stage = new createjs.Stage(canvas);
+
+                                    stage.autoClear = false;
+
+                                    ctx = canvas.getContext("2d");
+
+                                    ctx.fillStyle = "rgba(0, 0, 0, 0)";
+
+                                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                                    createjs.Ticker.setFPS(50);
+
+                                    // createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED
+                                    createjs.Touch.enable(stage);
+
+                                    stage.update();
+
+                                    // 重力
+                                    GRAVITY = 0;
+
+                                    // 抵抗
+                                    K = 0.4;
+
+                                    // スピード
+                                    SPEED = 12;
+
+                                    // 角度(degree)からラジアン(radian)に変換
+                                    ToRadian = function(degree) {
+                                        return degree * Math.PI / 180.0;
+                                    };
+
+                                    // 花火を作り上げるクラス
+                                    Fireworks = class Fireworks {
+                                        constructor(sx = 100, sy = 100, particles = 70) {
+                                            var circle, i, j, rad, ref, speed;
+                                            this.sx = sx;
+                                            this.sy = sy;
+                                            this.particles = particles;
+                                            this.sky = new createjs.Container();
+                                            this.r = 0;
+                                            this.h = Math.random() * 360 | 0;
+                                            this.s = 100;
+                                            this.l = 50;
+                                            this.size = 3;
+                                            for (i = j = 0, ref = this.particles;
+                                                (0 <= ref ? j < ref : j > ref); i = 0 <= ref ? ++j : --j) {
+                                                speed = Math.random() * 12 + 2;
+                                                circle = new createjs.Shape();
+                                                circle.graphics.f(`hsla(${this.h}, ${this.s}%, ${this.l}%, 1)`).dc(0, 0, this.size);
+                                                circle.snapToPixel = true;
+                                                circle.compositeOperation = "lighter";
+                                                rad = ToRadian(Math.random() * 360 | 0);
+                                                circle.set({
+                                                    x: this.sx,
+                                                    y: this.sy,
+                                                    vx: Math.cos(rad) * speed,
+                                                    vy: Math.sin(rad) * speed,
+                                                    rad: rad
+                                                });
+                                                this.sky.addChild(circle);
+                                            }
+                                            stage.addChild(this.sky);
+                                        }
+
+                                        explode() {
+                                            var circle, j, p, ref;
+                                            if (this.sky) {
+                                                ++this.h;
+                                                for (p = j = 0, ref = this.sky.getNumChildren();
+                                                    (0 <= ref ? j < ref : j > ref); p = 0 <= ref ? ++j : --j) {
+                                                    circle = this.sky.getChildAt(p);
+                                                    // 加速度
+                                                    circle.vx = circle.vx * K;
+                                                    circle.vy = circle.vy * K;
+                                                    // 位置計算
+                                                    circle.x += circle.vx;
+                                                    circle.y += circle.vy + GRAVITY;
+                                                    // 色
+                                                    this.l = Math.random() * 100;
+                                                    // パーティクルのサイズ
+                                                    this.size = this.size - 0.001;
+                                                    if (this.size > 0) {
+                                                        circle.graphics.c().f(`hsla(${this.h}, 100%, ${this.l}%, 1)`).dc(0, 0, this.size);
+                                                    }
+                                                }
+                                                if (this.sky.alpha > 0.1) {
+                                                    this.sky.alpha -= K / 50;
+                                                } else {
+                                                    stage.removeChild(this.sky);
+                                                    this.sky = null;
+                                                }
+                                            } else {
+
+                                            }
+                                        }
+
+                                    };
+
+                                    fireBoss = [];
+
+                                    setInterval(function() {
+                                        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+                                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                    }, 40);
+
+                                    setInterval(function() {
+                                        var x, y;
+                                        x = Math.random() * canvas.width | 0;
+                                        y = Math.random() * canvas.height | 0;
+                                        fireBoss.push(new Fireworks(x, y));
+                                        return fireBoss.push(new Fireworks(x, y));
+                                    }, 6000);
+
+                                    repeat = function() {
+                                        var fireworks, j, ref;
+                                        for (fireworks = j = 0, ref = fireBoss.length;
+                                            (0 <= ref ? j < ref : j > ref); fireworks = 0 <= ref ? ++j : --j) {
+                                            if (fireBoss[fireworks].sky) {
+                                                fireBoss[fireworks].explode();
+                                            }
+                                        }
+                                        stage.update();
+                                    };
+
+                                    createjs.Ticker.on("tick", repeat);
+
+                                    stage.addEventListener("stagemousedown", function() {
+
+                                    });
+
+                                }).call(this);
+                            </script>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <h1 align="center">人類出現後</h1>
+                            <canvas id="canvas2"></canvas>
+                            <script>
+                                (function() {
+                                    var Fireworks, GRAVITY, K, SPEED, ToRadian, canvas, context, ctx, fireBoss, repeat, stage;
+
+                                    canvas = document.getElementById("canvas2");
+
+                                    context = canvas.getContext("2d");
+
+                                    canvas.width = window.innerWidth;
+
+                                    canvas.height = window.innerHeight;
+
+                                    stage = new createjs.Stage(canvas);
+
+                                    stage.autoClear = false;
+
+                                    ctx = canvas.getContext("2d");
+
+                                    ctx.fillStyle = "rgba(0, 0, 0, 0)";
+
+                                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                                    createjs.Ticker.setFPS(50);
+
+                                    // createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED
+                                    createjs.Touch.enable(stage);
+
+                                    stage.update();
+
+                                    // 重力
+                                    GRAVITY = 0;
+
+                                    // 抵抗
+                                    K = 0.5;
+
+                                    // スピード
+                                    SPEED = 12;
+
+                                    // 角度(degree)からラジアン(radian)に変換
+                                    ToRadian = function(degree) {
+                                        return degree * Math.PI / 180.0;
+                                    };
+
+                                    // 花火を作り上げるクラス
+                                    Fireworks = class Fireworks {
+                                        constructor(sx = 100, sy = 100, particles = 50) {
+                                            var circle, i, j, rad, ref, speed;
+                                            this.sx = sx;
+                                            this.sy = sy;
+                                            this.particles = particles;
+                                            this.sky = new createjs.Container();
+                                            this.r = 0;
+                                            this.h = Math.random() * 360 | 0;
+                                            this.s = 100;
+                                            this.l = 50;
+                                            this.size = 3;
+                                            for (i = j = 0, ref = this.particles;
+                                                (0 <= ref ? j < ref : j > ref); i = 0 <= ref ? ++j : --j) {
+                                                speed = Math.random() * 12 + 2;
+                                                circle = new createjs.Shape();
+                                                circle.graphics.f(`hsla(${this.h}, ${this.s}%, ${this.l}%, 1)`).dc(0, 0, this.size);
+                                                circle.snapToPixel = true;
+                                                circle.compositeOperation = "lighter";
+                                                rad = ToRadian(Math.random() * 360 | 0);
+                                                circle.set({
+                                                    x: this.sx,
+                                                    y: this.sy,
+                                                    vx: Math.cos(rad) * speed,
+                                                    vy: Math.sin(rad) * speed,
+                                                    rad: rad
+                                                });
+                                                this.sky.addChild(circle);
+                                            }
+                                            stage.addChild(this.sky);
+                                        }
+
+                                        explode() {
+                                            var circle, j, p, ref;
+                                            if (this.sky) {
+                                                ++this.h;
+                                                for (p = j = 0, ref = this.sky.getNumChildren();
+                                                    (0 <= ref ? j < ref : j > ref); p = 0 <= ref ? ++j : --j) {
+                                                    circle = this.sky.getChildAt(p);
+                                                    // 加速度
+                                                    circle.vx = circle.vx * K;
+                                                    circle.vy = circle.vy * K;
+                                                    // 位置計算
+                                                    circle.x += circle.vx;
+                                                    circle.y += circle.vy + GRAVITY;
+                                                    // 色
+                                                    this.l = Math.random() * 100;
+                                                    // パーティクルのサイズ
+                                                    this.size = this.size - 0.001;
+                                                    if (this.size > 0) {
+                                                        circle.graphics.c().f(`hsla(${this.h}, 100%, ${this.l}%, 1)`).dc(0, 0, this.size);
+                                                    }
+                                                }
+                                                if (this.sky.alpha > 0.1) {
+                                                    this.sky.alpha -= K / 50;
+                                                } else {
+                                                    stage.removeChild(this.sky);
+                                                    this.sky = null;
+                                                }
+                                            } else {
+
+                                            }
+                                        }
+
+                                    };
+
+                                    fireBoss = [];
+
+                                    setInterval(function() {
+                                        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+                                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                    }, 40);
+
+                                    setInterval(function() {
+                                        var x, y;
+                                        x = Math.random() * canvas.width | 0;
+                                        y = Math.random() * canvas.height | 0;
+                                        fireBoss.push(new Fireworks(x, y));
+                                        return fireBoss.push(new Fireworks(x, y));
+                                    }, 0);
+
+                                    repeat = function() {
+                                        var fireworks, j, ref;
+                                        for (fireworks = j = 0, ref = fireBoss.length;
+                                            (0 <= ref ? j < ref : j > ref); fireworks = 0 <= ref ? ++j : --j) {
+                                            if (fireBoss[fireworks].sky) {
+                                                fireBoss[fireworks].explode();
+                                            }
+                                        }
+                                        stage.update();
+                                    };
+
+                                    createjs.Ticker.on("tick", repeat);
+
+                                    stage.addEventListener("stagemousedown", function() {
+
+                                    });
+
+                                }).call(this);
+                            </script>
+                            <div class="row">
+                                <div  data-aos="fade-up">
+                                    <div class="col-full">
+                                        <br>
+                                        <br>
+                                        <p style="font-family: wt064">《自然》雜誌稱，50年後100多萬種陸地生物將從地球上消失。因為人類活動造成的影響，物種滅絕速度比自然滅絕速度快了1000倍，平均每小時就有壹個物種滅絕。生物在漫長的演化過程中，長期穩定期與短期劇變期總是在相互交替，滅絕也以不同的規模出現。在穩定期內，平均新生率遠遠大於平均滅絕率，總的平均滅絕率維持在壹個低水平上，這種低水平滅絕被稱作背景滅絕；與此相對應，在劇變期，許多生物門類在短期內大量滅絕，生物演化進程突然中斷，使滅絕率突然升高，而新生率則降得很低，這種大規模的絕滅叫集群滅絕或大絕滅。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- end 動物滅絕速率 -->
         </div>
         <!--End of container-->
 
