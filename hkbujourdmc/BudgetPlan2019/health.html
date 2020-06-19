@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Healthcare - Budget Plan 2019-2020</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="picture/healthcare_icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="picture/healthcare_icon.png" type="image/x-icon" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* body {
+                color: #fff;
+                background: #676d79;
+                line-height: 25px;
+                font-family: Chalkduster, fantasy;
+            } */
+        
+        @media only screen and (min-width:0px) {
+            body {
+                font-size: 12px;
+            }
+            .button_img img {
+                width: 40px;
+            }
+        }
+        
+        @media only screen and (min-width:480px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 60px;
+            }
+        }
+        
+        @media only screen and (min-width:768px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 80px;
+            }
+        }
+        
+        @media only screen and (min-width:992px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 100px;
+            }
+            /* .news_button{
+                    height: 291.28px;
+                    
+                } */
+        }
+        
+        @media only screen and (min-width:1200px) {
+            body {
+                font-size: 18px;
+            }
+            .button_img img {
+                width: 120px;
+            }
+            /* .news_button{
+                    height: 291.28px;
+                    
+                } */
+        }
+        
+        .news_page {
+            width: 80vw;
+            /* height: 100vh; */
+            /* background: #e3e9ee; */
+        }
+        
+        .data_page {
+            width: 80vw;
+            /* height: 100vh; */
+            /* background: #e3e9ee; */
+        }
+        
+        .news_content {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            vertical-align: center;
+        }
+        
+        .news_content p+p {
+            display: none;
+            transition: all 2s;
+        }
+        
+        .button_img img:hover {
+            cursor: pointer
+        }
+        
+        .news_button {
+            display: flex;
+            align-items: flex-end;
+            vertical-align: center;
+            justify-content: space-around
+        }
+        
+        .onShow {
+            /* animation: show_animation 1s; */
+            display: block !important;
+            /* transition: all 1s; */
+        }
+        
+        .onhide {
+            display: none !important;
+            /* animation: hide_animation 1s; */
+            /* transition: all 1s; */
+        }
+        
+        .button_img {
+            opacity: 0.4;
+            transition: all 0.3s
+        }
+        
+        .button_img:hover {
+            opacity: 1;
+            transition: all 0.3s
+        }
+        
+        .img_opacity {
+            opacity: 1 !important;
+        }
+        
+        hr {
+            margin-top: 0px;
+            *margin: 0;
+            border: 0;
+            color: white;
+            background-color: white;
+            height: 2px
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <!-- HighChart Javascript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!-- HighChart Javascript -->
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <a href="index.html" class="logo"><strong>TYR x DMC</strong> <span>2019</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html" class="button fit">Home</a></li>
+                <li><a href="highlight.html" class="button fit">Highlight</a></li>
+                <li><a href="tax.html" class="button fit">Tax</a></li>
+                <li><a href="health.html" class="button fit">Health</a></li>
+                <li><a href="elderly.html" class="button fit">Elderly</a></li>
+                <li><a href="sow.html" class="button fit">Social Workers</a></li>
+            </ul>
+            <!-- <ul class="actions stacked">
+                <li><a href="#" class="button primary fit">Get Started</a></li>
+                <li><a href="#" class="button fit">Log In</a></li>
+            </ul> -->
+        </nav>
+
+        <!-- Banner -->
+        <!-- Note: The "styleN" class below should match that of the header element. -->
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+                    <img src="picture/branchImage/healthCare.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h1>Healthcare</h1>
+                </header>
+
+                <!-- Main---- <div class="content">
+                    <p>The intro of healthcare topic goes here</p>
+                </div>      -->
+            </div>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <!-- <header class="major"> -->
+                    <h2>Budget 2019/20: Frontline public hospital staff to receive allowance boost
+                    </h2>
+                    <hr>
+                    <h4><i>Reported by Stephanie Ma,William Tsui and Tomiris Urstembayeva
+                                <br>Edited by Phoebe Lai
+			    <br>Graphics by Kelly Zhao & Fannie Zhu
+                            </i></h4>
+                    <!-- </header> -->
+                    <p>
+                        Frontline medical staff in public hospitals are set to benefit from a myriad of healthcare measures, Financial Secretary Paul Chan Mo-po said in his budget speech today.
+
+                        <br>Around $80 billion will be allocated to the public healthcare system, as Hong Kong public hospitals suffer from labour shortages and overworked medical staff are increasingly making mistakes.
+
+
+                    </p>
+                    <div class="data_page">
+                        <div class="data_content_box">
+                            <div class="data_content">
+                                <!--Chart of HAAllocation-->
+                                <section class="Chart">
+                                    <div id="HAAllocation" style="min-width: width 300px; height:400px"></div>
+                                    <script src="HealthCare/HAAllocation.js"></script>
+                                    <p style="font-family:Arial, Helvetica, sans-serif; font-size: 12px;text-align: center;line-height: 15px">
+                                        The actual funding allocation from the Hospital Authority always surpasses the planned amount from budget. The percentage of fund allocation to HA remains between 9.9% to 11.6%.
+
+                                    </p>
+                                </section>
+                                <!--End of HA Allocation-->
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        The Hospitality Authority will receive $700 million to alleviate the heavy workload of frontline healthcare workers, boost morale and retain talent.
+
+                        <br>Public hospitals in Hong Kong suffered from severe labour shortage crisis during this winter’s flu season.
+
+                        <br>“Our healthcare and supporting teams in the public sector have been safeguarding the health of the community with professionalism and passion,” said Mr. Chan, “Yet, surges in demand coupled with manpower and facility constraints
+                        have added to their workload. They are no doubt hard-pressed.”
+
+                        <br>He proposed to increase the salary and hourly rate of on-call medical staff.
+
+                    </p>
+
+                    <div class="data_page">
+                        <div class="data_content_box">
+                            <div class="data_content">
+                                <!--Chart of Medical-->
+                                <section class="Chart">
+                                    <div id="Medical" style="min-width: 300px; height: 400px"></div>
+                                    <script src="HealthCare/Medical.js"></script>
+                                    <p style="font-family:Arial, Helvetica, sans-serif; font-size: 12px;text-align: center;line-height: 15px">
+                                        The percentage of registered doctors has surged from 41.5% to 48.14% from 2009 to 2017, but the number of increase remains less than 1,000.
+
+                                    </p>
+
+                                </section>
+                                <!--End of Medical -->
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        He will also increase the number of posts for senior nurses and the salary for ward-supporting staff.
+                    </p>
+
+                    <div class="data_page">
+                        <div class="data_content_box">
+                            <div class="data_content">
+                                <!--Chart of Nursing-->
+                                <section class="Chart">
+                                    <div id="Nursing" style="min-width: 300px; height: 400px"></div>
+                                    <script src="HealthCare/Nursing.js"></script>
+                                    <p style="font-family:Arial, Helvetica, sans-serif; font-size: 12px;text-align: center;line-height: 15px">
+                                        The percentage of registered and enrolled nurses serving in public hospitals dropped from 50.5% to 46.% in ten-years time.
+
+                                    </p>
+
+                                </section>
+                                <!--End of Nursing -->
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        “The Hospital Authority will hire all medical graduates in the coming five years,” Mr. Chan said.
+
+
+
+                        <br> Doctors have overly busy schedules and huge stress because the doctor-patient ratio is disproportionate and there has been an increase in the number of medical-related legal disputes, said a medical student doing clinical
+                        work who did not want to reveal his full name.
+
+                        <br>“No one really cares whether we are overworking or not when we are scolded for making mistakes,” he said. “To alleviate the problem, there should be more budget to build more hospitals for more beds, as well as to hire more
+                        people including doctors, nurses and health-associated workers.”
+
+                        <br>“With the great pressure they have, they are more likely to make mistakes and therefore get complaints from patients, which makes them more unwilling to be the frontline healthcare staff,” said Cherry Yip Yee-ching, a nursing
+                        student at The Open University of Hong Kong.
+
+                        <br>She said that the workload for frontline healthcare staff is too heavy at the moment.
+
+
+                    </p>
+
+                    <div class="data_page">
+                        <div class="data_content_box">
+                            <div class="data_content">
+                                <!--Pie Chart of Redundant Personnel-->
+                                <section class="Chart">
+                                    <div id="Personnel" style="min-width: 300px; height: 400px"></div>
+                                    <script src="HealthCare/Personnel.js"></script>
+                                    <p style="font-family:Arial, Helvetica, sans-serif; font-size: 12px;text-align: center;line-height: 15px">
+                                        According to Hospital Authority Annual Report 2017-2018, medical staff takes up 8.% of the total manpower.
+                                    </p>
+                                </section>
+                                <!--End of Redundant Personnel-->
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        The shortage of 285 doctors in 2017 is expected to increase to 500 by 2020 and 1,007 by 2030; there will be a shortfall of 1,669 general nurses in the coming 13 years, according to a study from the Food and Health Bureau in 2018.
+                    </p>
+
+                    <ul class="actions">
+                        <div class="btn-group-vertical">
+                            <li><a href="http://tyr.jour.hkbu.edu.hk/2019/02/27/budget-2019-20-frontline-public-hospital-staff-to-receive-allowance-boost/" class="button primary fit">View this post in TYR website</a></li>
+                            <li><a href="index.html" class="button fit">Back to the main page</a></li>
+                        </div>
+                    </ul>
+
+            </section>
+
+
+
+            <!-- Three -->
+            <!-- <section id="three">
+                <div class="inner">
+                    <p>by: </p>
+                    <ul class="actions">
+                        <li><a href="generic.html" class="button next">View the original post in TYR website</a></li>
+                    </ul>
+                </div>
+            </section> -->
+
+            </div>
+
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <ul class="icons" style="margin: auto; text-align: center">
+                        <!-- <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li> -->
+                        <li><a href="https://www.facebook.com/hkbutyr/" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/hkbutyr/" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://github.com/hkbujourdmc/hkbujourdmc.github.io" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                    </ul>
+                    <br>
+                    <ul class="copyright" style="margin: auto; text-align: center">
+                        <li>&copy; 2019</li>
+                        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Lorem Ipsum</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            color: #fff;
+            background: #676d79;
+            line-height: 25px;
+            font-family: Chalkduster, fantasy;
+        }
+        
+        @media only screen and (min-width:0px) {
+            body {
+                font-size: 12px;
+            }
+            .button_img img {
+                width: 40px;
+            }
+        }
+        
+        @media only screen and (min-width:480px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 60px;
+            }
+        }
+        
+        @media only screen and (min-width:768px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 80px;
+            }
+        }
+        
+        @media only screen and (min-width:992px) {
+            body {
+                font-size: 14px;
+            }
+            .button_img img {
+                width: 100px;
+            }
+            /* .news_button{
+                height: 291.28px;
+                
+            } */
+        }
+        
+        @media only screen and (min-width:1200px) {
+            body {
+                font-size: 16px;
+            }
+            .button_img img {
+                width: 120px;
+            }
+            /* .news_button{
+                height: 291.28px;
+                
+            } */
+        }
+        
+        .news_page {
+            width: 100vw;
+            /* height: 100vh; */
+            /* background: #e3e9ee; */
+        }
+        
+        .news_content {
+            height: 380px;
+            display: flex;
+            align-items: center;
+            vertical-align: center;
+        }
+        
+        .news_content p+p {
+            display: none;
+            transition: all 2s;
+        }
+        
+        .button_img img:hover {
+            cursor: pointer
+        }
+        
+        .news_button {
+            display: flex;
+            align-items: flex-end;
+            vertical-align: center;
+            justify-content: space-around
+        }
+        
+        .onShow {
+            /* animation: show_animation 1s; */
+            display: block !important;
+            /* transition: all 1s; */
+        }
+        
+        .onhide {
+            display: none !important;
+            /* animation: hide_animation 1s; */
+            /* transition: all 1s; */
+        }
+        /* @keyframes hide_animation
+        {
+            0%{opacity: 1;}
+            25%{opacity: 0.5;}
+            50%{opacity: 0.2;}
+            100%{opacity: 0;visibility: hidden;display: none;}
+        }
+        @keyframes show_animation
+        {
+            0%{display: block;visibility: visible;;opacity: 0;}
+            25%{opacity: 0.2;}
+            50%{opacity: 0.5;}
+            100%{opacity: 1;}
+        } */
+        
+        .button_img {
+            opacity: 0.4;
+            transition: all 0.3s
+        }
+        
+        .button_img:hover {
+            opacity: 1;
+            transition: all 0.3s
+        }
+        
+        .img_opacity {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="news_page">
+        <div class="news_box container">
+            <div class="news_content_box">
+                <div>
+                    <h2>Lorem Ipsum</h2>
+                </div>
+                <div class="news_content">
+                    <p class="p_class" id="p_one">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus leo at dapibus pharetra. Aenean sit amet justo et massa rhoncus hendrerit. Maecenas efficitur felis a felis molestie suscipit. Donec nec sagittis augue, et finibus
+                        mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris nibh erat, lacinia ac mauris sed, vulputate pretium diam. Phasellus eu mollis massa. Aenean laoreet ullamcorper risus
+                        ac porttitor. Maecenas aliquet vestibulum consequat. Praesent ac tincidunt nibh, sit amet blandit magna. Donec vitae mattis neque. Nunc eu nulla in augue pharetra hendrerit in in ipsum. Ut aliquet tempus erat eget mollis. Nam blandit
+                        in tortor vitae lacinia.
+                    </p>
+                    <p class="p_class" id="p_two">Etiam sed lobortis ligula, at finibus magna. Aenean sapien est, luctus ut neque eu, lobortis dictum lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec iaculis mauris egestas pharetra
+                        semper. Nam tristique nunc non bibendum tempor. Nulla facilisi. Sed et leo ac magna condimentum ultricies. Sed suscipit lobortis massa, dignissim malesuada turpis pulvinar eu.
+                    </p>
+                    <p class="p_class" id="p_three">In a tortor in elit tincidunt egestas. Fusce diam eros, vehicula ut sapien in, pretium semper risus. Praesent mi lorem, mattis id eleifend at, mollis ut nisl. Nulla volutpat felis nunc, nec suscipit enim ultricies elementum. Nulla
+                        vulputate mi non volutpat elementum. Donec condimentum, diam tristique sollicitudin malesuada, diam lorem commodo massa, nec hendrerit sem augue a orci. Nullam maximus semper dignissim. Aliquam malesuada odio eget dictum tristique.
+                        Fusce aliquet, velit sed malesuada malesuada, augue purus ornare turpis, vitae fringilla nunc ligula vel dolor. Fusce imperdiet, tortor vitae lobortis elementum, neque lacus pellentesque orci, sed placerat felis est quis lorem.
+                        Etiam tincidunt, lorem mollis molestie varius, eros nibh malesuada nisl, quis cursus diam lacus non massa.
+                    </p>
+                    <p class="p_class" id="p_four">Ut iaculis imperdiet tortor, ac scelerisque nulla sagittis sit amet. Etiam lobortis tortor mi, at blandit turpis elementum vitae. Aliquam non velit leo. Nam pulvinar fringilla odio, in dapibus felis vestibulum ut. Vestibulum tristique
+                        velit lorem, interdum placerat ante ultrices id. Quisque turpis libero, pulvinar non dapibus quis, viverra sed lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In at tempus risus,
+                        a pellentesque lacus. Donec pharetra ultrices diam sit amet dapibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed auctor faucibus dolor ac dictum. Sed lobortis aliquet tortor id ornare. Praesent feugiat ornare
+                        vehicula.
+                    </p>
+                    <p class="p_class" id="p_five">Curabitur ac tristique dolor. Maecenas vitae commodo augue, at tincidunt erat. Sed mi tortor, bibendum quis vestibulum non, volutpat tempus eros. Donec consequat orci in erat vulputate, eu pretium est euismod. Nullam non blandit sem,
+                        non vehicula lectus. Etiam egestas sem pulvinar felis feugiat tempus. Nunc viverra facilisis tortor, vel pretium felis vulputate ac. Proin mollis et elit eget interdum.
+                    </p>
+                </div>
+            </div>
+            <div id="newButton" class="news_button">
+                <div class="button_img img_opacity">
+                    <img class="pic_one" src="./picture/1.png" alt="">
+                </div>
+                <div class="button_img">
+                    <img class="pic_two" src="./picture/2.png" alt="">
+                </div>
+                <div class="button_img">
+                    <img class="pic_three" src="./picture/3.png" alt="">
+                </div>
+                <div class="button_img">
+                    <img class="pic_four" src="./picture/4.png" alt="">
+                </div>
+                <div class="button_img">
+                    <img class="pic_five" src="./picture/5.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var newButton = document.getElementById('newButton');
+    var p_one = document.getElementById('p_one');
+    var p_two = document.getElementById('p_two');
+    var p_three = document.getElementById('p_three');
+    var p_four = document.getElementById('p_four');
+    var p_five = document.getElementById('p_five');
+    var button_img = document.querySelectorAll('.button_img');
+    var p_class = document.querySelectorAll('.p_class');
+    newButton.addEventListener('click', function(ev) {
+        let Target = ev.target || window.event.target;
+        switch (Target.className) {
+            case 'pic_one':
+                for (var i = 0; i < p_class.length; i++) {
+                    p_class[i].setAttribute('class', 'onhide');
+                }
+                p_one.setAttribute('class', 'onShow');
+                if (Target.parentNode.className.indexOf('button_img') >= 0) {
+                    for (var i = 0; i < button_img.length; i++) {
+                        button_img[i].setAttribute('class', 'button_img');
+                    }
+                    Target.parentNode.setAttribute('class', 'img_opacity button_img');
+                }
+                // console.log(Target.parentNode.className.indexOf('button_img'));
+                break;
+            case 'pic_two':
+                for (var i = 0; i < p_class.length; i++) {
+                    p_class[i].setAttribute('class', 'onhide');
+                }
+                p_two.setAttribute('class', 'onShow');
+                if (Target.parentNode.className.indexOf('button_img') >= 0) {
+
+                    for (var i = 0; i < button_img.length; i++) {
+                        button_img[i].setAttribute('class', 'button_img');
+                    }
+                    Target.parentNode.setAttribute('class', 'img_opacity button_img');
+                }
+                break;
+            case 'pic_three':
+                for (var i = 0; i < p_class.length; i++) {
+                    p_class[i].setAttribute('class', 'onhide');
+                }
+                p_three.setAttribute('class', 'onShow');
+                if (Target.parentNode.className.indexOf('button_img') >= 0) {
+                    for (var i = 0; i < button_img.length; i++) {
+                        button_img[i].setAttribute('class', 'button_img');
+                    }
+                    Target.parentNode.setAttribute('class', 'img_opacity button_img');
+                }
+                break;
+            case 'pic_four':
+                for (var i = 0; i < p_class.length; i++) {
+                    p_class[i].setAttribute('class', 'onhide');
+                }
+                p_four.setAttribute('class', 'onShow');
+                if (Target.parentNode.className.indexOf('button_img') >= 0) {
+                    for (var i = 0; i < button_img.length; i++) {
+                        button_img[i].setAttribute('class', 'button_img');
+                    }
+                    Target.parentNode.setAttribute('class', 'img_opacity button_img');
+                }
+                break;
+            case 'pic_five':
+                for (var i = 0; i < p_class.length; i++) {
+                    p_class[i].setAttribute('class', 'onhide');
+                }
+                p_five.setAttribute('class', 'onShow');
+                if (Target.parentNode.className.indexOf('button_img') >= 0) {
+                    for (var i = 0; i < button_img.length; i++) {
+                        button_img[i].setAttribute('class', 'button_img');
+                    }
+                    Target.parentNode.setAttribute('class', 'img_opacity button_img');
+                }
+                break;
+        }
+
+    })
+</script>
